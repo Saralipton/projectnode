@@ -1,0 +1,902 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Projetoalll Backend",
+    "version": "1.0.0",
+    "title": "Projetoalll APIS",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "employee",
+      "description": "Operations for employee",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    },
+    {
+      "name": "product",
+      "description": "Access to all Products"
+    },
+    {
+      "name": "user",
+      "description": "Operations for user"
+      
+    },
+    {
+      "name": "order",
+      "description": "Access to orders"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/employee": {
+      "post": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Add a new employee",
+        "description": "",
+        "operationId": "addEmployee",
+        "consumes": [
+          "application/json"
+          
+        ],
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Employee object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Employee"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Name is required"
+          },
+          "409": {
+            "description": "Email Already Exists"
+          },
+          "201": {
+            "description": "Employee Created"
+          }
+        }
+        
+      }
+      
+    },
+    "/employee/get": {
+      "get": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Get All employees",
+        "description": "",
+        "operationId": "getAllEmployees",
+        "consumes": [
+          "application/json"
+          
+        ],
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          
+          "200": {
+            "description": "Employee Created",
+            "schema": {
+              "type": "array",
+              "employees": {
+                "$ref": "#/definitions/Employee"
+              }
+            }
+          }
+        }
+        
+      }
+      
+    },
+    "/employee/{id}": {
+      "get": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Find Employee By Id",
+        "description": "",
+        "operationId": "findEmployeeById",
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Employee"
+              }
+            }
+          },
+          "404": {
+            "description": "Employee Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Delete Employee By Id",
+        "description": "",
+        "operationId": "deleteEmployeeById",
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+            
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful operation"
+          },
+          "404": {
+            "description": "Employee Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Update an existing employee",
+        "description": "",
+        "operationId": "updateEmployee",
+        "consumes": [
+          "application/json"
+          
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Employee object",
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of Employee",
+            "required": true,
+            "type": "string" 
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Employee Not Found"
+          },
+          "200": {
+            "description": "Employee Updated"
+          }
+        }
+      }
+    },
+    "/product": {
+      "post": {
+        "tags": [
+          "product"
+        ],
+        "summary": "Add a new product",
+        "description": "",
+        "operationId": "addProduct",
+        "consumes": [
+          "application/json"
+          
+        ],
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Product object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Name is required"
+          },
+          "201": {
+            "description": "Product Created"
+          }
+        }
+        
+      }
+      
+    },
+    "/product/get": {
+      "get": {
+        "tags": [
+          "product"
+        ],
+        "summary": "Get All products",
+        "description": "",
+        "operationId": "getAllProducts",
+        "consumes": [
+          "application/json"
+          
+        ],
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          
+          "200": {
+            "description": "Product Created",
+            "schema": {
+              "type": "array",
+              "products": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        }
+        
+      }
+      
+    },
+    "/product/{id}": {
+      "get": {
+        "tags": [
+          "product"
+        ],
+        "summary": "Find Product By Id",
+        "description": "",
+        "operationId": "findProductById",
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "404": {
+            "description": "Product Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "product"
+        ],
+        "summary": "Delete Product By Id",
+        "description": "",
+        "operationId": "deleteProductById",
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+            
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful operation"
+          },
+          "404": {
+            "description": "Product Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "product"
+        ],
+        "summary": "Update an existing product",
+        "description": "",
+        "operationId": "updateEmployee",
+        "consumes": [
+          "application/json"
+          
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Product object",
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of Product",
+            "required": true,
+            "type": "string" 
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Product Not Found"
+          },
+          "200": {
+            "description": "Product Updated"
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Add a new user",
+        "description": "",
+        "operationId": "addUser",
+        "consumes": [
+          "application/json"
+          
+        ],
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Name is required"
+          },
+          "409": {
+            "description": "Email Already Exists"
+          },
+          "201": {
+            "description": "User Created"
+          }
+        }
+        
+      }
+      
+    },
+    "/user/get": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Get All users",
+        "description": "",
+        "operationId": "getAllUsers",
+        "consumes": [
+          "application/json"
+          
+        ],
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          
+          "200": {
+            "description": "User Created",
+            "schema": {
+              "type": "array",
+              "users": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+        
+      }
+      
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Find User By Id",
+        "description": "",
+        "operationId": "findUserById",
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          },
+          "404": {
+            "description": "User Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Delete User By Id",
+        "description": "",
+        "operationId": "deleteUserById",
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+            
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful operation"
+          },
+          "404": {
+            "description": "User Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Update an existing user",
+        "description": "",
+        "operationId": "updateUser",
+        "consumes": [
+          "application/json"
+          
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object",
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of User",
+            "required": true,
+            "type": "string" 
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "User Not Found"
+          },
+          "200": {
+            "description": "User Updated"
+          }
+        }
+      }
+    },
+    "/order": {
+      "post": {
+        "tags": [
+          "order"
+        ],
+        "summary": "Add a new order",
+        "description": "",
+        "operationId": "addOrder",
+        "consumes": [
+          "application/json"
+          
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Order object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "User id is required"
+          },
+          "201": {
+            "description": "Order Created"
+          }
+        }
+        
+      }
+      
+    },
+    "/order/get": {
+      "get": {
+        "tags": [
+          "order"
+        ],
+        "summary": "Get All orders",
+        "description": "",
+        "operationId": "getAllOrders",
+        "consumes": [
+          "application/json"
+          
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "users": {
+                "$ref": "#/definitions/Order"
+              }
+            }
+          }
+        }
+        
+      }
+      
+    },
+    "/order/{id}": {
+      "get": {
+        "tags": [
+          "order"
+        ],
+        "summary": "Find Order By Id",
+        "description": "",
+        "operationId": "findOrderById",
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/Order"
+              }
+            }
+          },
+          "404": {
+            "description": "Order Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "order"
+        ],
+        "summary": "Delete Order By Id",
+        "description": "",
+        "operationId": "deleteOrderById",
+        "produces": [
+          
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful operation"
+          },
+          "404": {
+            "description": "Order Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "order"
+        ],
+        "summary": "Update an existing order",
+        "description": "",
+        "operationId": "updateOrder",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Order object",
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of Order",
+            "required": true,
+            "type": "string" 
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Order Not Found"
+          },
+          "200": {
+            "description": "Order Updated"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Order": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string"
+        },
+        "product_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "description": "Order Status",
+          "enum": [
+            "placed",
+            "approved",
+            "delivered"
+          ]
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "david"
+        },
+        "email": {
+          "type": "string",
+          "example": "david@gmail.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "david"
+        },
+        "contact": {
+          "type": "string",
+          "example": "+1 800 33333"
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "required": [
+        "name",
+"category"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "shirt"
+        },
+        "category": {
+          "type": "string",
+          "example": "men's wear"
+        },
+        "stock": {
+          "type": "integer",
+          "example": 1
+        },
+        "employee_id": {
+          "type": "string",
+          "$ref": "#/definitions/Employee"
+        }
+      },
+      "xml": {
+        "name": "Tag"
+      }
+    },
+    "Employee": {
+      "type": "object",
+      "required": [
+        "name",
+        "email",
+        "password"
+      ],
+      "properties": {
+        
+        "category": {
+          "$ref": "#/definitions/Category"
+        },
+        "name": {
+          "type": "string",
+          "example": "david"
+        },
+        "email": {
+          "type": "string",
+          "example": "david@gmail.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "david"
+        },
+        "contact": {
+          "type": "string",
+          "example": "+1 800 33333"
+        }
+        
+      },
+      "xml": {
+        "name": "Pet"
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
