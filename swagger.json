@@ -813,7 +813,7 @@
         },
         "contact": {
           "type": "string",
-          "example": "+1 800 33333"
+          "example": "253 673 123"
         }
       }
     },
