@@ -801,19 +801,19 @@
       "properties": {
         "name": {
           "type": "string",
-          "example": "david"
+          "example": "sara"
         },
         "email": {
           "type": "string",
-          "example": "david@gmail.com"
+          "example": "donasara@gmail.com"
         },
         "password": {
           "type": "string",
-          "example": "david"
+          "example": "1234512345"
         },
         "contact": {
           "type": "string",
-          "example": "253 673 123"
+          "example": "919191929"
         }
       }
     },
@@ -859,19 +859,19 @@
         },
         "name": {
           "type": "string",
-          "example": "david"
+          "example": "joao"
         },
         "email": {
           "type": "string",
-          "example": "david@gmail.com"
+          "example": "jonnhdaswish@gmail.com"
         },
         "password": {
           "type": "string",
-          "example": "david"
+          "example": "joao12345"
         },
         "contact": {
           "type": "string",
-          "example": "253 673 123"
+          "example": "919191919"
         }
         
       },
